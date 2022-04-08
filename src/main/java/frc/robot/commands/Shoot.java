@@ -155,7 +155,7 @@ SmartDashboard.updateValues();
       shoot.outakeV((speed + bumpertrim));
     }
     else {
-      shoot.outakeV((speed + bumpertrim) - 4000);
+      shoot.outakeV((speed + bumpertrim) - 8000);
     }
   }
   
@@ -190,6 +190,8 @@ SmartDashboard.updateValues();
 
       
       // Timer.delay(0.5);
+      apressed = true;
+      timeAPressed = System.currentTimeMillis();
       intake.transitionMotor(1);
       intake.conveyor(1);
 
@@ -197,11 +199,18 @@ SmartDashboard.updateValues();
       // while (!(!intake.banner1Output() && intake.banner2Output())) {
 
       // }
-      Timer.delay(2.5);
+      // Timer.delay(2.5);
 
+      // intake.transitionMotor(0);
+      // intake.conveyor(0);
+      // }
+    }
+
+    if(apressed && (System.currentTimeMillis() - timeAPressed)/1000.0 >= 2.5){
       intake.transitionMotor(0);
       intake.conveyor(0);
-      // }
+      apressed = false;
+      timeAPressed = 0;
     }
 
     
