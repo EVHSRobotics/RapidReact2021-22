@@ -34,7 +34,7 @@ public class AutoCommand extends CommandBase {
   boolean autoAim = true;
   boolean autoCompute = true;
 
-  int autoCommandParam = 3;
+  int autoCommandParam = 4;
 
   public AutoCommand(Drivetrain drivetrain, Turret turret, Vision vision, Shooter shooter, Intake intake) {
     this.drivetrain = drivetrain;

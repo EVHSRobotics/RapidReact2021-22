@@ -137,7 +137,7 @@ if (controller.getXButtonPressed()) {
 if (controller.getRawButton(8)) {
   usingAutoRev = false;
   useConstantVelocity = true;
-  speed = 17000;
+  speed = 15500;
 }
 
 SmartDashboard.putBoolean("autoRev", usingAutoRev);
@@ -151,12 +151,12 @@ SmartDashboard.updateValues();
     // else {
     //   shoot.outakeV(10000);
     // }
-    if (((shoot.teamColor.equals(DriverStation.Alliance.Red) && colorReading.red > colorReading.blue)) || ((shoot.teamColor.equals(DriverStation.Alliance.Blue) && colorReading.red < colorReading.blue))) {
+    // if (((shoot.teamColor.equals(DriverStation.Alliance.Red) && colorReading.red > colorReading.blue)) || ((shoot.teamColor.equals(DriverStation.Alliance.Blue) && colorReading.red < colorReading.blue))) {
       shoot.outakeV((speed + bumpertrim));
-    }
-    else {
-      shoot.outakeV((speed + bumpertrim) - 8000);
-    }
+    // }
+    // else {
+    //   shoot.outakeV((speed + bumpertrim) - 8000);
+    // }
   }
   
 
@@ -194,6 +194,7 @@ SmartDashboard.updateValues();
       timeAPressed = System.currentTimeMillis();
       intake.transitionMotor(1);
       intake.conveyor(1);
+      intake.intakeBrush(0);
 
       // // While banner 1 output is false && intake 
       // while (!(!intake.banner1Output() && intake.banner2Output())) {
@@ -258,7 +259,7 @@ SmartDashboard.updateValues();
       intake.intakeBrush(1);
       intake.conveyor(1);
     }
-    else {
+    else if(!apressed){
       intake.conveyor(0);
       intake.intakeBrush(0);
       intake.transitionMotor(0);
