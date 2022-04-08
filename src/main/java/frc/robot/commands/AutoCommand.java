@@ -67,7 +67,7 @@ public class AutoCommand extends CommandBase {
     else if (autoCommandParam == 2) {
       far = false;
       autoAim = true;
-      autoCompute = true;
+      autoCompute = false;
 
     }
     else if (autoCommandParam == 3) {
@@ -78,7 +78,7 @@ public class AutoCommand extends CommandBase {
     else if (autoCommandParam == 4) {
       far = true;
       autoAim = true;
-      autoCompute = true;
+      autoCompute = false;
     }
   } 
 

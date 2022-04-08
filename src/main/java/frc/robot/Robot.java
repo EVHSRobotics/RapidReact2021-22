@@ -31,7 +31,8 @@ import frc.robot.subsystems.Intake;
 public class Robot extends TimedRobot {
   private Command[] teleCommands;
 
-  private UsbCamera camera;
+  private UsbCamera camera1;
+  private UsbCamera camera2;
   private CvSink cvSink;
   private CvSource outputStream;
   private RobotContainer m_robotContainer;
@@ -46,9 +47,11 @@ public class Robot extends TimedRobot {
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
     m_robotContainer = new RobotContainer();
-    camera = CameraServer.startAutomaticCapture();
+    camera1 = CameraServer.startAutomaticCapture(0);
+    camera2 = CameraServer.startAutomaticCapture(1);
     limelightCamera = new HttpCamera("limelight", "http://10.28.54.11:5801/stream.mjpg", edu.wpi.first.cscore.HttpCamera.HttpCameraKind.kMJPGStreamer);
-    camera.setResolution(640, 480);
+    camera1.setResolution(640, 480);
+    camera2.setResolution(640, 480);
     cvSink = CameraServer.getVideo();
     outputStream = CameraServer.putVideo("IntakeStream", 640, 480);
     CameraServer.startAutomaticCapture(limelightCamera);
