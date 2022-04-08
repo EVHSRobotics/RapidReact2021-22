@@ -183,15 +183,11 @@ SmartDashboard.updateValues();
      
     //   manualShooter = true;
     // }
-
-
-    
     if (controller.getAButtonPressed()) {
       // manualShooter = false; 
 
       // if (vision.getTarget() == 1) {
-        apressed = true;
-        timeAPressed = System.currentTimeMillis();
+
       
       // Timer.delay(0.5);
       intake.transitionMotor(1);
@@ -201,15 +197,38 @@ SmartDashboard.updateValues();
       // while (!(!intake.banner1Output() && intake.banner2Output())) {
 
       // }
-   
-      // }
-    }
-    if(apressed && ((System.currentTimeMillis() - timeAPressed) / 1000) >= 2.5){
-      apressed = false;
-      timeAPressed = 0;
+      Timer.delay(2.5);
+
       intake.transitionMotor(0);
       intake.conveyor(0);
+      // }
     }
+
+    
+    // if (controller.getAButtonPressed()) {
+    //   // manualShooter = false; 
+
+    //   // if (vision.getTarget() == 1) {
+    //     apressed = true;
+    //     timeAPressed = System.currentTimeMillis();
+      
+    //   // Timer.delay(0.5);
+    //   intake.transitionMotor(1);
+    //   intake.conveyor(1);
+
+    //   // // While banner 1 output is false && intake 
+    //   // while (!(!intake.banner1Output() && intake.banner2Output())) {
+
+    //   // }
+   
+    //   // }
+    // }
+    // if(apressed && ((System.currentTimeMillis() - timeAPressed) / 1000) >= 2.5){
+    //   apressed = false;
+    //   timeAPressed = 0;
+    //   intake.transitionMotor(0);
+    //   intake.conveyor(0);
+    // }
     double outtakespeed = 0;
     //
     if(controller.getRightTriggerAxis() > 0.1 ){
@@ -226,7 +245,7 @@ SmartDashboard.updateValues();
       intake.conveyor(-0.75);
       intake.intakeBrush(-0.75);
     }
-    else if (controller.getYButton()) {
+    else if (controller.getYButton() && !(intake.banner1Output() && intake.banner2Output())) {
       intake.intakeBrush(1);
       intake.conveyor(1);
     }

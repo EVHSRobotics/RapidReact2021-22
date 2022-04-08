@@ -64,7 +64,7 @@ public final class Constants {
     public static final int XBOX_DRIVE_CONTROLLER_PORT = 0;
 
 
-    public static final int LED_CHANNEL = 0;
+    public static final int LED_CHANNEL = 1;
     public static final double LED_CHANNEL_RED = 0.61;
     public static final double LED_CHANNEL_GREEN = 0.77;
     public static final double LED_CHANNEL_BLUE = 0.87;
