@@ -185,7 +185,7 @@ public class AutoCommand extends CommandBase {
     intake.intakeDown(); //drops intake
     Timer.delay(1);
     // Gets the current start time
-    intake.transitionMotor(-1);
+    // intake.transitionMotor(-1);
 //
     shooter.outakeV(10000);
     //rev up shooter
@@ -202,7 +202,7 @@ public class AutoCommand extends CommandBase {
       SmartDashboard.updateValues();
       // Run conveyor and move backward
       intake.intakeBrush(1);
-      intake.conveyor(1);
+      // intake.conveyor(1);
       drivetrain.move(0.4, 0, false);
 
       if (autoAim) {
