@@ -39,9 +39,9 @@ public class ClimberCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    if(controller.getBButtonPressed()){
-      climberSys.resetEncoders();
-    }
+    // if(controller.getBButtonPressed()){
+    //   climberSys.resetEncoders();
+    // }
     
     SmartDashboard.putNumber("MOTOR 7 ENCODER: ", climberSys.get7());
     SmartDashboard.putNumber("MOTOR 8 ENCODER: ", climberSys.get8());
@@ -58,10 +58,10 @@ public class ClimberCommand extends CommandBase {
     // }
 
     if(controller.getRightTriggerAxis() > 0.1 && climberSys.get7() < 244348){
-      climberSys.move(controller.getRightTriggerAxis() * 0.5);
+      climberSys.move(controller.getRightTriggerAxis() * 0.65);
       // climberSys.get8() > 0
     }else if(Math.abs(controller.getLeftTriggerAxis()) > 0.1 && climberSys.get7() > 0){
-      climberSys.move(-controller.getLeftTriggerAxis() * 0.5);
+      climberSys.move(-controller.getLeftTriggerAxis() * 0.65);
     }else{
       climberSys.move(0);
     }

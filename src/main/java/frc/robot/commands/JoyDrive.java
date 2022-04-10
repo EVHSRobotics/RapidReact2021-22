@@ -91,7 +91,7 @@ public class JoyDrive extends CommandBase {
   @Override
   public void execute() {
 
-    if(controller.getBButtonPressed()){
+    if(controller.getYButtonPressed()){
       if(isBrake){
         drivetrain.moveToBrake();
       }else{
@@ -105,12 +105,16 @@ public class JoyDrive extends CommandBase {
     // SmartDashboard.putNumber("ENCODER", drivetrain.getIntegratedSensor());
     // SmartDashboard.updateValues();
 
-    if (controller.getRightBumperPressed() || controller.getLeftBumperPressed()) {
+    if (controller.getXButtonPressed()) {
       // SmartDashboard.putBoolean("CLICKED", true);+
       // SmartDashboard.updateValues();
       if (highGear) {
+        powerLimiter = new SlewRateLimiter(0.1875);
+        turnLimiter = new SlewRateLimiter(1);
         drivetrain.setForward();
       } else {
+        powerLimiter = new SlewRateLimiter(1.75);
+        turnLimiter = new SlewRateLimiter(4);
         drivetrain.setReverse();
       }
       highGear = !highGear;

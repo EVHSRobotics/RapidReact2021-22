@@ -109,9 +109,9 @@ public class Shoot extends CommandBase {
     // if(controller.getXButtonPressed()){
     //   useBanners= !useBanners;
     // }
-    SmartDashboard.putNumber("Difference Shooter Speed", speed);
+    SmartDashboard.putNumber("Difference Shooter Speed", speed - shoot.getRPM());
     SmartDashboard.putNumber("Y VALUE", vision.getY());
-
+SmartDashboard.updateValues();
 
           Color colorReading = shoot.getColorSensorV3();
 
