@@ -43,7 +43,7 @@ public class RobotContainer {
   private Joystick driveStick, turnStick;
   private XboxController controller, driveController;
   private final JoyDrive jdrive;
-  private final ClimberCommand climb;
+  private final ClimberCommand climb
   private final TurretMove tmove;
   private final Shooter shooter = new Shooter();
   private final Shoot shoot;
